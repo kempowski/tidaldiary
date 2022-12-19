@@ -1,0 +1,18 @@
+-- 1. stut
+-- fügt noten dem pattern zu
+-- anzahl, gain, time
+d1 $ stut 10 0.5 0.25 $ sound "bd"
+
+d1 $ rev $ stut 4 0.5 0.33 $ sound "bd(3,8)"
+
+-- 2. stut'
+-- anzahl, time zwischen den samples, funktion auf die es angewandt wird
+d1 $ stut' 5 (0.125/2) ((|*| speed "1.8") . (|+| pan "1")) $ sound "bd(3,8)"
+
+-- 3. off
+d1 $ off 0.125 (|*| speed "1.5") $ sound "bd(3,8)"
+
+-- og
+d1 $ sound "bd(3,8)"
+
+hush

@@ -1,0 +1,21 @@
+d1 $ slow 2 $ striate' 12 0.02 $ sound "808bd(3,4) cp:3"
+  -- # speed "[0.1, 0.5, 2, 0.1]"
+  #gain "1 "
+
+d1 $ slow 4 $ sound "bleep(9,16)"
+  #gain "0.8"
+
+d3 $ sound "~ ~ 808sd:25 ~"
+  # delay "0.8"
+  # delaytime "0.2"
+  # delayfeedback "0.5"
+  # speed "4"
+
+hush
+
+d2 $ every 8 (0.25 <~)$ every 4 (rev) $ slow 2 $striate' 15 0.02 $ sound "bottle(5,9)"
+  # speed "0.2 2 0.4 1 0.3"
+
+d3 $ slow 4 $ sound "bass0(4,16,5)"
+  # speed "0.2"
+  # lpf "500"

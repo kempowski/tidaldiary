@@ -1,0 +1,11 @@
+let warp sampleName p = density 8 $ s sampleName #
+
+p 1 $ s "80"
+
+
+hush
+
+p 1 $ stack [
+  sound "bd bd*2",
+  sound "hh*2 [sn cp:1] cp:1 [hh ho]"
+]

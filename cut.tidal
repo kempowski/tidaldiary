@@ -1,0 +1,9 @@
+d1 $ sound "jk:2 jk:1 . jk:2 jk2 jk2"
+  # cut "1"
+
+d2 $ sound "~ sd:2 . hh hh hh sd:4"
+
+d3 $ slow 2 $ sound "808bd:2(5,8)"
+  #gain 2
+
+hush

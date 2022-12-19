@@ -1,0 +1,32 @@
+cps(94/120)
+
+d1 $ sound "[808bd 808bd] hh 808sd:13 [808oh 808oh]"
+# gain "1.4"
+
+d1 $ sound "[808bd 808bd] 808:1 808sd:13 [808:1 808oh]"
+  # gain "1.4"
+
+d1 $ sound "[808bd 808bd ] 808:1 808sd:14 [808:1 808oh]*2"
+  # gain "1.4"
+
+d2 $ sound "[808sd:14 808ht:1 808lc:2] bd ~ ~"
+
+d2 $ sound "bd ~ ~ [808sd:14 808ht:1 808lc:2]"
+
+d3 $ sound "808:1(5,8)"
+
+d4 $ sound "808ht(3,8) 808lc(5,8)"
+  # gain "1"
+
+d2 $ sound "bd"
+  # gain "1"
+
+d5 $ striate 16 $ sound "birds birds:1"
+  # gain "0.8"
+  -- # cut "1"
+
+d5 $ striate' 4 (1/16) $ sound "birds birds:1"
+  # gain "1"
+  -- # cut "1"
+
+hush

@@ -1,0 +1,48 @@
+cps(120/120)
+
+d1 $ sound "bd bd"
+
+d1 $ sound "bd" # gain "4"
+
+d2 $ sound "hh hh hh hh"
+
+d3 $ sound "hh:1" # delay "4"
+
+d2 silence
+
+d3 $ midinote "60 62*2 66" # s "arpy"
+
+d3 silence
+
+hush
+
+d1 $ sound "[bd:1 hh:0*2] cp hh*2"
+
+d1 silence
+
+d1 $ rev (sound "bd*2 [bd [sn sn*2 sn] sn]")
+
+d1 $ every 4 (rev) (sound "bd*2 [bd [sn sn*2 sn] sn]")
+
+d1 $ sound "[bd hh [hh sd:1] hh] sd:1"
+
+d1 $ every 4 (rev) (sound "bd hh . hh sd:1 . hh . sd:1")
+
+d1 $ every 4 (fast 2) $ (sound "bd hh . hh sd:1 . hh . sd:1")
+
+d1 $ rev (sound "[bd bd bd, sd:2 hh sd:2 hh]*2 hh hh")
+
+d1 $ slow 2 $ sound "[[[feel:5*8,feel*3] feel:3*8]?, feel*4]"
+
+d1 $ sound (fast 4 "bd sn kurt")
+   # fast 7 (vowel "a e o")
+
+d1 $ slow 32 $ jux (rev) $ striate' 32 (1/16) $ sound "bev"
+
+d1 $ smash 3 [2,3,4] $ sound "ho ho:2 ho:3 hc"
+
+d1 $ every 3 (rev) $ sound (brak "bd sn kurt")
+
+d1 $ every 4 (0.25 <∼ ) $ sound (density 2 "bd sn kurt")
+
+hush

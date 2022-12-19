@@ -1,0 +1,12 @@
+do
+  let prog = "[0 2 7 5]/2"
+  d1
+    $ sound "bd(3,8)"
+    # up prog
+  d2
+    $ slow 2 $ sound "sax:9(3,8)"
+    # cut 1
+    # up prog
+    
+
+hush

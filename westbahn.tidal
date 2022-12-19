@@ -1,0 +1,17 @@
+d2 $ every 4 (rev) $ jux (# speed "5") $ sound "[808bd:5] hh 808sd:1 [ho hh]"
+
+d2 $ spread slow [2, 4] $ sound "ho ho:2 ho:3 hc"
+  # gain "0.7"
+
+d3 $ zoom (0.1, 0.75) $ sound "bd*2 hh*3 [sn bd] drum"
+
+d2 $ sound "bd*2 hh*3 [sn bd] drum"
+
+d4 $ sound "amencutup:10 amencutup:1 amencutup:2 amencutup:3"
+
+d5 $ sound "e:2(5,8)"
+  # speed (sine*5)
+  # gain "1.2"
+  # hpf "3000"
+
+hush

@@ -1,0 +1,30 @@
+bejing airport
+
+p 1
+  $ chunk 4 (rev)
+  $ chop 3
+  $ s "chin" + n "0 1 2 [3 4]"
+  # room 0.05
+  # speed 0.1
+
+p 2
+  $ slow 2
+  $ every 8 (chunk 10 (fast 4))
+  $ s "808bd:1"
+
+p 3
+  $ stut 5 0.2 (-0.1)
+  $ s "~ ~ sd ~"
+  # gain 0.7
+
+p 4
+  $ every 4 (hurry 2)
+  $ (chunk 4 (hurry 2))
+  $ chop 5
+  $ s "insect"
+
+p 5
+  $
+  $ s "sine(3,2)"
+
+  hush

@@ -1,0 +1,36 @@
+let prog = "[0 2 7 5]/2"
+
+p 2 $ every 4 (hurry 2) $ (chunk 4 (hurry 2) $ jux rev $ chop 5 $ s "bd")
+
+p 123 $ fast 2 $ chunk 4 (hurry 2) $ s "amencutup:0 amencutup:1 amencutup:2 amencutup:3"
+
+do
+  p 123
+    $ fast 1
+    $ jux (iter 4)
+    $ every 4 (chunk 4 (rev))
+    $ every 8 (chunk 5 (fast 2))
+    $ s "amencutup" + n "0 1 2 3 4 5 6 7"
+    # lpf 3000
+    # room 0.2
+
+  d1
+    $ slow 2
+    $ stut 5 0.6 (-0.2)
+    -- $ every 4 (linger "<0.5 1 0.1>")
+    $ s "sine(3,2)"
+    # up prog
+    # gain 0.8
+
+p 132
+  -- $ striate' 4 0.1
+  $ slow 1.5
+  $ s "juno(8,3)"
+  # speed prog
+
+p 2
+  $ s "amencutup*8"
+  # n (irand 8)
+  -- # nudge (scale 0 4)
+
+hush

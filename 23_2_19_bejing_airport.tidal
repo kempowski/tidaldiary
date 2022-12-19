@@ -1,0 +1,48 @@
+bejing airport
+
+cps (100/180)
+
+let melo = "1 4 0 5"
+
+do
+  p 1
+    $ chunk 4 (rev)
+    $ chop 3
+    $ s "chin" + n "0 1 2 [3 4]"
+    # gain 0.9
+    # room 0.05
+    # lpf 3000
+    # speed 0.1
+  p 3
+    $ slow 2
+    $ every 8 (chunk 10 (fast 4))
+    $ s "808bd:1"
+    # cut 5
+    # gain 1
+  p 2
+    $ every 4 (hurry 2)
+    $ (chunk 4 (hurry 2)
+    -- $ jux rev
+    $ chop 5
+    $ s "insect")
+    -- # nudge 0.2
+  p 4
+    $ stut 5 0.2 (-0.1)
+    $ s "~ ~ sd ~"
+    # gain 0.8
+
+p 5
+  $ slow 1.5
+  $ stut 5 0.6 (-0.2)
+  $ degradeBy 0.4
+  $ every 4 (chunk 5 (rev))
+  -- $ every 4 (linger "<0.5 1 0.1>")
+  $ s "sine(3,2)"
+  # up prog
+  # gain 0.4
+  # crush 1
+  # room 0.4
+  # delay 0.8
+
+
+hush

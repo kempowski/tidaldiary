@@ -1,0 +1,4 @@
+d1 $ sound "bd sd"
+  #nudge (scale 0 4 $ slow 8 $ sine)
+
+hush

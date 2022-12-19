@@ -1,0 +1,21 @@
+--d1 $ sound "tacscan ~"
+d1 $ chop 2 $ sound "tacscan ~"
+--d1 $ every 4 (rev) $ chop 2 $ sound "tacscan ~"
+
+d2 $ sound "bleep(2,5)" # n (every 4 (*2)"4 10")
+  # speed "0.8"
+  # gain "0.6"
+  -- # lpf "600"
+
+d4 $ sound "bd:5"
+  # gain "4"
+  # lpf "400"
+  # speed 0.9
+  -- # speed (sine*100)
+
+d3 $ slow 8 $  sound "numbers:3 numbers:2 numbers:1 numbers:0 "
+  # speed "0.75"
+  # pan sine
+
+
+hush

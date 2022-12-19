@@ -1,0 +1,46 @@
+cps (120/120)
+
+d1 $ sound "hh hh hh casio"
+  -- # speed (sine*2)
+ # vowel "a o e"
+ # gain 1.2
+
+d2 $ sound "[bd bd] ~ . [cp sd]"
+
+d3 $ degrade $ sound "bd*4 sn*9" # speed (density 5 $ tri)
+  -- # gain sine1
+  -- # delay "1"
+
+d3 $ degradeBy 0.55 $ sound "bd*4 sn*9" # speed (density 2 $ tri)
+
+d4 $ sound "bd:5"
+  # gain "4"
+  # lpf "400"
+  # speed 0.9
+  -- # speed (sine*100)
+
+d2 $ sound "bleep(2,5)" # n (every 4 (*2)"4 10")
+  # speed "0.8"
+  # gain "1"
+  -- # lpf "600"
+
+d4 silence
+
+hush
+
+d2 $ chop 16 $ sound "arpy ~ feel*2 newnotes"
+  -- #delay "1"
+
+d2 silence
+
+d1 $ slow 2 $ every 4 (rev) $ chop 16 $ sound "breaks125"
+
+
+d5 $ chop 32 $ sound (samples "arpy*8" (run 16))
+  # speed (sine*10)
+
+d5 $ silence
+
+d1 $ sound "feel*4 [feel:2 sn:2]"
+
+t1 (superwash (# accelerate "4 2 -2 -4") (striate 2) 1 4 6) $ sound "bd [odx:2 sn/2]"

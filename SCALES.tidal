@@ -1,0 +1,27 @@
+let minor = "0 3 8 10"
+
+let major = "0 4 9 11"
+
+let whole_tone = "0 2 4 6 8 10"
+
+let harmonic_min = "0 2 3 5 7 8 11 12"
+
+d1 $ s "pluck:5*4"
+  # up minor
+
+d1 $ whenmod 4 2 (#up minor)
+  $ s "pluck:5*4"
+  #up major
+
+d1
+  $ rev
+  $ s "pluck:5*6"
+  # up whole_tone
+
+  d1
+    $ slow 2
+    $ rev
+    $ s "pluck:5*8"
+    # up harmonic_min
+
+  hush

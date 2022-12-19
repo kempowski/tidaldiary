@@ -1,0 +1,17 @@
+let harmonic_min = "0 2 3 5 7 8 11 12"
+
+p 1
+  $ slow 1
+  $ stutWith 3 (0.25) (|* gain "0.8")
+  $ s "sine*8"
+  # up harmonic_min
+
+p 2
+  $ fast 2
+  $ stack [
+    s "[bd*3] ~ <bd bd:2> ~"
+    , s "cash*8" # gain "1.2"
+    , s "~ cp ~ cp:4" # gain "0.9"
+  ]
+
+hush
