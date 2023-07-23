@@ -1,0 +1,9 @@
+d1 $ echoWith 3 "<0.09 0.123>" (# pan "<0 1>") 
+
+d1 $ striateBy 12 0.1 $ s "cosmic" # pan "<1 0>" # cut 1
+
+d1 $ slow 2 $ striate "<3 12>" $ s "cosmic"  # cut "<1 >" 
+
+
+d2 $ asdf "emanative"
+"

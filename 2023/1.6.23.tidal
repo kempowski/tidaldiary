@@ -1,0 +1,86 @@
+d1 $ stack[
+    echo 3 0.112 0.7 $ s "noise:2*4" 
+    # pan circle
+    # gain noExit
+    # hpf subsurface,
+    chop "<13 3>" $ s "perc:3" 
+    # pan zig
+    # gain (ramp1 3 0.9  1.6 tri)
+] # cps "<1 1 0.7 0.3 0.11>"
+
+
+d2 $ stack[
+    asdf "emanative" # gain noExit 
+    # pan q1
+    # speed 1
+    # cps "0.5"
+] 
+
+# pan (ramp1 4 erster letzter tri) 
+
+d3 $ s "test" # cut 0 
+    # gain (ramp 1 0.9 1.7 tri) 
+
+d4 $ degrade $ echo "<12 5 2 66> " 0.112 0.9 
+    $ s "glitch:2" # pan u2 # gain (0.4 + perlin) 
+
+d5 $ euclid 3 8 $ s "ilbd" # pan q2 # cps 2999
+
+
+d1 $ echoWith 2 0.111 (# pan ka) $ s "hih" # pan erster
+
+d1 $ every 2 (rev) $ stack [
+    chop 12 $ s "perc:3" # pan hl1,
+    rev $ chop 12 $ s "perc:3" # pan hl2
+] # legato 1 
+
+
+d2 $ echoWith "<5 42 15>" 0.01 (# pan rr) $ s "bd:4" # pan ll 
+
+d3 $ every 8 (stfu) $ asdf "dexter" # speed "<8 10 0.4 42>" 
+    # legato 1 
+    # gain (ramp1 3 0.7 1.2 perlin)
+    # pan circle
+    # lpf 3000
+    # cps "<1 0.3 10 0.5 3>"
+
+
+d1 $ stack[
+    asdf "dexter" # lpf (ramp1 3 2000 3000 square) 
+    # speed "<4 0.3 6>" 
+    # pan q1 
+    # cut 1,
+    stfu $ chop 14 $ s "noise" # pan q3,
+    stfu $ s "perc:3(3,8)" # pan q2 # gain (ramp1 3 0.8 1.4 tri)
+] 
+
+d1$ s "noise" # panbus 1 $ range (0) 1 $ slow 4 sine
+
+
+d1 $ channel "0..5" #  s "bd"
+
+d1 $ every 4 (rev) $ fast "<3 5 1.5>" $ channel "0..5" # s "feedback" # cut 1
+
+once $ s "cosmic"
+
+d1 $ s "bd"
+    # panbus 1 (range (-1) 1 (slow 4 sine))
+    # cut "<0 0 1 1 1>"
+
+
+
+
+let a = (range (-1) 1 (slow 8 tri))
+
+repeatCycles
+
+d1
+    $ s "bd*12"    
+    # dreh 1 tri  
+    # cut 1
+
+d1 $ stack[
+    s "ilbd noise:3"
+    # pan q1
+    # gain 0.7 
+] 

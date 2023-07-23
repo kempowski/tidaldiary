@@ -1,0 +1,22 @@
+d1 $ stfu $ fast 2 $ chop "<3 12>" $ degradeBy 0.4 
+    $ echo "<3 5>" 0.11 0.8 
+    $ s "feedback" 
+    # pan circle 
+
+d2 $ every "<3 5>" (stfu) $ noiseGen # pan k1  
+
+d2 $ degradeBy 0.6 $ fast "<3 1>" $ s "sub37" # pan siliL 
+
+d3 $ chop "<3 42 5>" $ slow 4 $ s "popup" # pan circle # gain (ramp1 5 0.6 1 tri)
+
+
+d4 $ every "<9 5>" (stfu) $ asdf "emanative" # speed "<1 4 0.4 1>" # pan circle # gain 0.75 # cps "< 12 6>" # gain(ramp1 4 0.4 1 tri)
+
+d1 $ fast "<32 8 12>" $ s "knacks" # pan circle
+
+d2 $ stack[
+    noiseGen # pan siliD,
+    euclid 5 13 $ s "perc:3" # pan zig,
+    s"sub37"
+]
+

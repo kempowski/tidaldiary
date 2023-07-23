@@ -1,0 +1,19 @@
+d1 $ stack [
+    -- chop 2 $ s "bd ~ sd ~" #cut "1",
+    -- every 4 ( striate 16 ) $ s "hih*4",
+    slow 1 $ euclid 3 8 $ s "nis" # cut "2" # begin "<0 0.3>"
+] 
+
+# cps "[0.5 0.9 0.3]/3"
+
+d2 $ s "hih:0*3" |+| n "3 0 2 0"
+
+hush
+
+
+
+d1 $ stack [
+    slow 2 $ s "flute" # cut 1,
+    slow 2 $ euclid 3 8 $ s "bd",
+    s "hih*6" # n "4 8 6"
+] 

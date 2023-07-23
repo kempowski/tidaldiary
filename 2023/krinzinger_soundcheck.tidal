@@ -1,0 +1,20 @@
+d1 $ s "supernoise" # n 1  # pan (speaker!!5)
+
+d1 $ slow 1 $ s "supernoise" # n 1  # pan circle
+
+d1 $ stack [
+ s "supernoise" # n 1  # pan (speaker!!0),
+ s "supernoise" # n 1  # pan (speaker!!1),
+ s "supernoise" # n 1  # pan (speaker!!2),
+ s "supernoise" # n 1  # pan (speaker!!3),  
+ s "supernoise" # n 1  # pan (speaker!!4),
+ s "supernoise" # n 1  # pan (speaker!!5)
+] 
+
+d1 $ s "numbers" # pan circle
+
+hush
+
+intelegigent signal sensing genelec
+
+d1 $ asdf "emanative" # pan circle # speed zweitens # cps 0.5

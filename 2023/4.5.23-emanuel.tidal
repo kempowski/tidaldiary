@@ -1,0 +1,27 @@
+d1 $ stfu $ s "test" # cut "1" # pan circle # gain 2
+
+d2 $ stfu $ slow 4 $ anxiety "<22 66> " $ s "powerUp*4" # gain 0.5  # pan jump
+
+d3 $ s "popup" # gain "<0.5 0.4 0.6>" # pan circle
+
+d4 $ s "noEvent" # gain 0.4 
+
+d2 $ silence
+
+d4 $ s "popup"
+
+let aufloesung = (chop 16)
+
+d5 $ every 3 (rev) $ chop 128 $ s "glitch:0 glitch:1" # gain 0.8 # pan circle # cps "<0.4 0.5 1 3>/2"
+
+
+d2 $ stack[
+    s "bd ~ [bd bd] [sd sd clap]" 
+    # gain 0.4,
+    stfu $ s "hih*16" # gain 0.5 
+] # cps (perlin + 0.5) 
+
+
+d1 $ s "glitch:3" # gain 0.5 # pan circle
+
+hush

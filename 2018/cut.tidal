@@ -1,4 +1,4 @@
-d1 $ sound "jk:2 jk:1 . jk:2 jk2 jk2"
+d1 $ sound "bd:2 bd:1 . bd:2 bd2 bd2"
   # cut "1"
 
 d2 $ sound "~ sd:2 . hh hh hh sd:4"

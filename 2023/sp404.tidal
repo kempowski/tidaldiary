@@ -1,0 +1,18 @@
+
+
+once $ chop "<12>" $ s "popup" # pan "<0 1>*8" # gain (ramp1 0.5 0.5 1 tri)
+
+d1 $ stack[
+    slow 4 $ euclid 5 13 $ s "popup:3*4" # pan "<0 1>*13",
+    slow "<0.5 2 >" $ s "sub37(3,13)" # gain 0.8 # cut 1 # speed zweitens 
+] # cps zweitens
+
+d1 $ neverSurface # cps 1 
+
+
+d1 $ s "supernoise*12" # n perlin # gain 1 
+    
+    
+    # lpf (ramp1 "<12 6>" 200 1000 tri) 
+    # hpf (ramp1 12 0 200 tri) 
+

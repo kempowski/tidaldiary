@@ -1,0 +1,125 @@
+-- d1 $ jux rev $ n (off 0.125 (|+12) $ off 0.125 (|+7) "<c*2 a(3,8) f(3,8,2) e*2>")
+-- d1 $ jux rev $ n (off 0.125 (|+12) $ off 0.125 (|+7) "<c*2 a(3,8) f(3,8,2) e*2>")
+-- d1 $ n "<c*2 a(3,8) f(3,8,2) e*2>"
+-- d1 $ n (off 0.125 (|+12) $ off 0.125 (|+7) "<c*2 a(3,8) f(3,8,2) e*2>")
+d1 $ off 0.125 (|+3) $ n "c*2 a*3 f*2 e*2"
+  # sound "supermandolin"
+  # legato 2
+
+
+d2 $ arp "<pinkyup down thumbup up>" $ n "c'maj'4 e'min"
+    # sound "supermandolin"
+    # sustain 0.5
+    # room 0.4  # sz 0.9
+
+d1 $ jux' [id,rev,(# speed 2)] $ every 2 ("<0.25 0.125 0.5>" <~) $ sound "bd*2 [[~ lt] sn:3] lt:1 [ht mt*2]"
+  # squiz "<1 2.5 2>"
+  # room (slow 4 $ range 0 0.2 saw)
+  # sz 0.5
+
+d1 $ juxBy 0.4 rev $ every 2 (rot "<1 3 2>") $ n "0 <0 4> [2 0] [2 3]" # sound "feel" # speed "1.75 2"
+
+d2 $ slow 2 
+    $ note "c'maj7'6 e'min7'3" # s "supermandolin"
+    # room 1
+    # gain 1.3
+
+d3 $ s "break" # legato``
+
+
+d1 $ s "[bnd:5 ~ bnd:5]*2 snd:0"
+
+
+d2 $ every 2 (fast 2) $ s "hih:2*4"
+ 
+d1 $ s "[bnd!3 bnd:2] [snd snd:2]/2"
+
+
+d1 $ fast 1 $ n "[11 0]/2 11 2 4 9 0 1 [2 9] " 
+  # s "amencutup"
+  # speed 0.8 # cut 1 
+
+setcps (90/60/4)
+
+
+d1 $ s "nis nis" # cut 1 # gain 1.2 # pan "[1 0]/2"
+
+d2 $ n "e*8" 
+  # s "supersquare"
+  # gain 0.4
+
+d3 $ slow 4 $chop 16 $ note "2 0 3 1" # s "flute" # cut 1 # speed 0.8 # pan "[0 1 0 1]*4"
+
+d4 $ slow 2 $ s "~ ~ pff" # gain 2 # lpf 20000
+
+d5 $ s "bd:0(8,3)" 
+
+setcps(90/60/4)
+
+d5 $ s "[ilBd nis]/2 ilClap [ilBd ilBd] ilClap" # cut 1
+
+
+
+d1 $ speed ( segment "8 4 6 3" $ range 0.2 2 sine) # s "bev" # cut 1 
+
+
+d1 $ every "2 4" (hurry "1.3 2") $ chop 8 $ s "bev" # cut 1 
+
+d1 $ jux rev $ striate "2 [4 8]/2" $ s "bev bev" # legato 1
+
+d1 $ slow 2 $ jux ((#speed "[0.5 1]/2") . rev  ) $ striate "2 [4 8]/2" $ s "bev bev" # legato 1
+
+d1 $ every 2 (jux rev) $ striate "[4 16]/2" $ s "[flute:1 ~]/2 str" # legato 1
+
+d2 $ n (scale "minor" $ struct "t(5,8)" $ (irand 8) + 12) # s "supermandolin" # cut 1
+
+d1 $ jux (rev . (|+ speed 0.66)) $ scramble 4 $ n "e'min7 1 2 3 a'min7 5 6 7" # sound "arpy"
+   # room 0.3 # sz 0.3
+
+d1 $ shuffle 4 $ n "0 1 2 3 4 5 6 7" # sound "arpy"
+  
+  
+  -- # room 0.3 # sz 0.8
+
+
+setcps(90/60/4)
+
+d1 $ sound (segment 8 $ choose ["bd", "arpy", "snare"])
+
+-- d1 $ sound (struct "t t ~ t" $ choose ["str", "arpy", "nis"]) # cut 1
+
+
+d1 $ n "0 1 1 2" # s (choose ["bd", "perc:2"])
+
+d1 $ off "3f 2f" ((|+ n 7) . (#gain "[0.5 0.7]/2") ) $ n "c e" # sound "supermandolin"
+
+
+
+d1 $ off "s" (#squiz 0.2) 
+  $ n "<g'maj b'maj c'maj c'min>" 
+  # s "supermandolin"
+
+  # room 0.6 # sz 0.9
+d1 
+  -- $ off "s" (# speed 0.1)
+  $ off "s" ((|+ n 7) . (#room 0.9) . (|+ pan "0 1 0"))
+  $ slow 4
+  $ n "b'min e'min a'min d'maj"
+  # s "superhammond"
+  # sz 0.5
+
+-- donald byrd where are we going chord progression:
+d1 
+  -- $ off "s" ((|+ n 7) . (#room 0.9) . (|+ pan "0 1 0"))
+  $ slow 4
+  $ n "g'min7 f'maj7 g'min7 [f'maj7 f'maj9]/2"
+  # s "superfm"
+  # voice 4
+  # legato 1
+
+d2 $ slow 2 $ chop 4 $ n "0 [1 2]/2" # s "fm:2" # cut 1 # gain 1.2
+
+
+d4 $ s "ilBd*4" 
+  
+  

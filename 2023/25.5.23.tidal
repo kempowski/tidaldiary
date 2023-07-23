@@ -1,0 +1,174 @@
+d1 $ degradeBy 0.4 $ slow "<1 2>" $ echo 12 0.11 0.9 
+    $ s "sub37*3" # n "1 0" 
+    # pan circle 
+    # cut "<1 0 0>"
+    # gain (ramp1 2 0.7 1.2 sine)
+
+d1 $ si lence
+
+d2 $ degradeBy 0.4
+    $ fast "<3 2>" 
+    $ chop "<12 3>" 
+    $ s "glitch" # pan zig
+
+d3 $ stack[
+     echo 4 0.333 0.7 $ s "feedback*4" 
+    # pan zig
+    # speed (ramp1 2 "<2 7>" 0.8 sine)
+    # gain (ramp1 0.6 0.4 0.9 tri)
+    # lpf (ramp1 3 2000 600 sine),
+    asdf "emanative" # gain "<0.8 1 1.1>" # pan circle
+] # cps"<1 0.6 0.4 10>"
+    # lpf 19
+
+
+
+d1 $ degradeBy 0.9 $ echoWith "<4 5>" 0.111 ((#pan q2).(|*gain 0.8)) 
+    $ slow 2 $ s "feedback*4" 
+    # speed (ramp1 2 0.3 1 sine)
+    # pan q3 
+    # gain 0.9
+    # cut "<1 0>"
+
+d2 $ silence
+
+d2 $ degradeBy 0.9 $ fast "<2 3 7>" $ chop 14 $ s "noise"
+    # pan jump
+    # gain (ramp1 1 0.9 1.3 square)
+
+d3 $ fast "<3 5>" $ echo 12 0.3 0.9
+    $ s "sub37*2" #n "0 1" # pan q1
+    # speed (ramp1 2 0.3 1.2 sine)
+    # cut 0
+    # hpf (ramp1 3 0 2000 sine)
+
+d4 $ degradeBy 0.3
+    $ asdf "emanative" 
+    # speed "<0.4 10 2 3>" 
+    # gain (ramp1 4 0.2 1 tri)
+    # pan q2
+
+d1 $ chop "<3 12 5 24>" $ echo "<3 6>" "<0.111 0.2>" 0.8 
+    $ s "feedback*4" 
+    # gain (ramp1 "<1 4>" 0.5 1 sine) 
+    # pan circle
+    # speed "<0.4 2 1 0.3>"
+    # cps "<0.3 1 0.5>"
+
+
+d2 $ every 2 (fast "<2 3>")
+    $ anxiety 5
+    $ s "knacks(3,8)?"
+    # n (irand 5) 
+    # pan q1
+    # gain (ramp1 "<1 3>" 0.99 1.9 cosine)
+    # hpf 2000
+
+clutchIn 1 16 $ echo 4 "<0.1 -0.2>" 0.8 
+    $ slow 3 $ s "sub37*4" 
+    # n (irand 2)
+    # gain 1.3
+    # pan circle
+    # cut "<1 0 0>"
+
+d1 $ s "Superstatic"
+
+
+d1 $ echo "<3 6>" "<0.111 0.2>" 0.8 $ s "feedback*4" 
+    # pan circle #gain (ramp1 "<1 4>" 0.5 0.8 sine)
+    # speed "<0.4 2 1 0.3>"
+    # hpf "<2000 200 4000>"
+
+
+d2 $ s "knacks(3,8)" # pan q1
+    # n (irand 2 )
+
+
+d1 $ degradeBy 0.3
+    $ every 2 (fast 3) 
+    $ echo "<3 4 6>" "<0.11 0.2>" 0.8 $ s "feedback*4" 
+    # gain (ramp1 "<1 4>" 0.6 0.8 sine)
+    # pan circle
+    # speed "<0.4 2 1 0.3>"
+    # hpf (ramp1 2 200 2500 sine)
+
+d2 $ chop "<12 16>" $ euclid 4 9 $ s "glitch*4?" 
+    # n (irand 3)
+    # pan circle
+    # gain (ramp1 0.2 0.5 1 tri)
+
+d2 $ silence
+
+d1 $ echoWith 3 0.22 (#pan q1) $ fast 1.4 
+    $ s "sub37*4" # n "<1 0>" # pan q2
+    # gain (ramp1 1 1 1.1 sine)
+    # speed depricated
+    # cut "<1 0 0>"
+
+d2 $ degradeBy  $ chop "<12 2 32>" $ every 2 (fast 3) 
+    $ s "~ glitch" # pan q3
+    # gain (ramp1 2 0.9 1.4 sine)
+
+
+d1 $ stack [
+    degradeBy 0.1
+    $ echo 3 0.122 0.7 $ s "lucA" 
+    # pan q1
+    # speed depricated,
+    s "test" # cut "1 0 1",
+    degradeBy 0.1 $ asdf "emanative" 
+    # gain (ramp1 2 0.8 1.1 sine)
+    # pan circle # speed "<0.3 1 4 12>"
+] # cps 1 # hpf "<0 200 1000>"
+
+
+
+
+d1 $ chop "<4 12>" $ slow "<2 1 1.5>" $ s "feedback*4" 
+    # pan jump 
+    # cut "<0 1>" 
+    # speed "<0.4 1 1.23>"
+    # gain (ramp1 2 0.8 1 sine)
+    # cps 1
+    # lpf (ramp1 3 3000 100 cosine)
+
+d2 $ echo 12 0.111 0.8 $ chop "<12 24>" $ s "glitch" 
+    # n(irand 4) 
+    # pan dia1
+
+cps 1
+
+d1 $ asdf "emanative" # pan circle # speed 1 # gain 0.5 # cps "<1 0.4 2 10>"
+
+
+d1 $ degradeBy 0.99999 $ echo "<7 5>" 0.111 0.8 $ s "feedback*4" # pan circle # cut "<0 1 0>" 
+    # speed "<0.4 1 1.222 0.8 0.222 0.1>"
+    # hpf (ramp1 "<0.25 2 4>" 20 2000 perlin)
+    
+d2 $ fast "<3 3 4>" $ s "~ sub37:1*3" # pan q1 # cut "<1 0>" # n "<0 1>" 
+    # lpf 200
+    # speed "<0.8 1 1.3>"
+
+d2 $ silence
+
+d3 $ degradeBy "<0.2 0.7>" $ every 2 (fast "<3 6>") $ chop "<12 24>" $ euclid 3 9 $ s "glitch" 
+    # n(irand 2)
+    # pan dia1 
+    # speed depricated
+    # gain (ramp1 5 0.4 1.3 tri)
+    # cps 1
+
+d4 $ degrade 
+    $ every 3 (hurry 2) 
+    $ euclid "<3 4>" 13 
+    $ echo "<2 8>" 0.2 0.8 $ s "pff" 
+    # pan zig # gain (ramp1 4 0.5 1.2 tri)
+    # speed (1 + perlin)
+
+d5 $ degradeBy 0.3 $ every "<2 6>" (stfu) $ chop 2 $ asdf "emanative" # pan dia2 
+    # cps 1 
+    # gain (ramp1 0.5 0.3 1.2 cosine)
+
+
+d5 $ asdf "emanative" # speed 2 # pan u2
+    # cps ("<0.1 1 3 41 0.01>" + (ramp "<2 3>" sine))

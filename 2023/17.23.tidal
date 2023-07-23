@@ -1,0 +1,17 @@
+d2 $ stack[ 
+    slow 4 $ s "start" # pan circle # speed "<0.3 0.4>" # gain (ramp1 2 0.4 1.1 tri),
+    chop "<3 16 6>" $ s "glitch?" # pan jump,
+    echo 3 (-0.3) 0.6 $ s "popup?" # pan q1
+] # cps 1
+
+
+d3 $ stack [
+    slow 3 $ s "lucA" # speed depricated,
+    degradeBy 1.5 $ anxiety 13 $ slow 3 $ s "knacks*16?" # pan jump,
+    s "test" # cut "<0 1>" # pan circle # gain (ramp1 3 0.5 1.1 tri),
+    every 6 (stfu) $ asdf "dexter" # gain 0.8 # speed "<1 10 0.4>" # pan circle
+] # cps 1
+
+
+d3 $ asdf "dexter" # pan circle # cps 0.4
+

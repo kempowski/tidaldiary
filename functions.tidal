@@ -1,0 +1,116 @@
+-- 6 kanal speaker array im soundlabor
+let speaker = [ 0, 1/6, 2/6, 3/6, 4/6, 5/6]
+-- FUER PERFORMANCE ANGLEICHEN AN VENUE!!!!!!
+    speakerStep = 1.6
+-- SPEAKER ERST UND LETZT
+    erster = (speaker!!0)
+    letzter = (speaker!!5)
+-- BEWEGUNGEN GEOMETRISCH
+    circllist = speaker
+    circleRev = reverse circllist
+    diagonal1 = [speaker!!0, speaker!!3]
+    diagonal2 = [speaker!!5, speaker!!2]
+    diakur1   = [speaker!!0, speaker!!4]
+    diakur2   = [speaker!!5, speaker!!1]
+    diakur3   = [speaker!!1, speaker!!3]
+    diakur4   = [speaker!!4, speaker!!2]
+    quer1     = [speaker!!0, speaker!!5]
+    quer2     = [speaker!!1, speaker!!4]
+    quer3     = [speaker!!2, speaker!!3]
+    lang1     = [speaker!!0, speaker!!2]
+    lang2     = [speaker!!5, speaker!!3]
+    triangle1     = [speaker!!5, speaker!!0, speaker!!4]
+    triangle2     = [speaker!!0, speaker!!1, speaker!!4]
+    triangle3     = [speaker!!4, speaker!!1, speaker!!3]
+    triangle4     = [speaker!!1, speaker!!2, speaker!!3]
+    leftAr    = [speaker!!0, speaker!!4, speaker!!2] 
+    rightAr   = [speaker!!5, speaker!!1, speaker!!3]
+    kreis1 = [speaker!!0, speaker!!1, speaker!!4, speaker!!5]
+    kreis2 = [speaker!!1, speaker!!2, speaker!!3, speaker!!4]
+    kreis1rev = [speaker!!5, speaker!!4, speaker!!1, speaker!!0]
+    kreis2rev = [speaker!!4, speaker!!3, speaker!!2, speaker!!1]
+-- BEWEGUNGEN KOMPLEXER
+    zigzag = [speaker!!5, speaker!!0, speaker!!4, speaker!!1, speaker!!3, speaker!!2]
+    u = [speaker!!0, speaker!!1, speaker!!4, speaker!!5, speaker!!1, speaker!!2, speaker!!3, speaker!!4]
+    rw = choose [-1, 1]
+    sidelineLeft =   [speaker!!5, speaker!!4, speaker!!1, speaker!!2]
+    sidelineRight =  [speaker!!0, speaker!!1, speaker!!4, speaker!!3]
+    sidelineDouble = [speaker!!5, speaker!!4, speaker!!1, speaker!!2, speaker!!0, speaker!!1, speaker!!4, speaker!!3]
+-- PATTERN 
+    liste = "<0 1 2 3 4 5>"
+    depricated = "<0.9 1.4 1.2>"
+    drama = "<0.8 1 1.2>"
+    lowEnergy = "<5 0.3 5 0.4 2>"   
+-- ARRAY BEWEGUNGEN SIMPEL
+    dia1 = (fit 1 diagonal1 "0 1")
+    dia2 = (fit 1 diagonal2 "0 1")
+    dk1 = (fit 1 diakur1 "0 1")
+    dk2 = (fit 1 diakur2 "0 1 2 3 4 5")
+    dk3 = (fit 1 diakur3 "0 1 2 3 4 5")
+    dk4 = (fit 1 diakur4 "0 1")
+    q1 = (fit 1 quer1 "1 0")
+    q2 = (fit 1 quer2 "0 1")
+    q3 = (fit 1 quer3 "0 1")
+    hl1 = (fit 1 lang1 "0 1")
+    hl2 = (fit 1 lang2 "0 1")
+-- BEWEGUNGEN KOMPLEXER
+    circle = (fit 1 speaker "1 2 3 4 5 6")
+    circleR = (fit 1 circleRev "1 2 3 4 5 6")
+    jump = (fit 5 speaker "0 1 2 3 4 5")
+    zig = (fit 1 zigzag "0 1 2 3 4 5")
+    u2 = (fit 1 u "0 1 2 3 4 5")
+    siliL = (fit 1 sidelineLeft "0 1 2 3")
+    siliR = (fit 1 sidelineRight "0 1 2 3")
+    siliD = (fit 1 sidelineDouble "0 1 2 3 4 5 6 7")
+    k1 = (fit 1 kreis1 "0 1 2 3")
+    k2 = (fit 1 kreis2 "0 1 2 3")
+    k1r = (fit 1 kreis1rev "0 1 2 3")
+    k2r = (fit 1 kreis2rev "0 1 2 3")
+-- TRIANGLES
+    tria1 = (fit 1 triangle1 "0 1 2")
+    tria2 = (fit 1 triangle2 "0 1 2")
+    tria3 = (fit 1 triangle3 "0 1 2")
+    tria4 = (fit 1 triangle4 "0 1 2")
+-- < > + combo
+    ll = (fit 1 leftAr "0 1 2")
+    rr = (fit 1 rightAr "0 1 2")
+    lrlr = (fit 1 (leftAr ++ rightAr) "0 1 2 3 4 5")
+-- DREHEN
+    dreh a b = panbus 1 (range (-1) (1) (slow a b))
+-- EIGENE FUNKTIONEN
+    cutting = cut "<1 0 0>"
+    anxiety = striate
+    lost panning = echoWith 10 0.124 ((# pan panning).(|* gain 0.9))
+    afk = (const $ s "")
+    stfu = afk
+    null = afk
+    together p = stutter 3 (2/16) $ p
+    asdf sampleName = density 8 
+                        $ s sampleName
+                        # n (irand 4)
+                        # unit "c"
+                        # speed 8
+    ramp a b = (slow a (range 0 1 b))
+    ramp1 a b c d = (slow a(range b c d ))
+    noExit = (ramp1 6 0 1 tri)
+    subsurface = (ramp1 2 200 1000 tri)
+    zweitens = "<0.2 1 42 5>"
+-- GANZES
+    neverSurface = fast "<1 2 0.5>" 
+                    $ every 7 (stfu)
+                    $ echoWith 4 "<-0.12 0.22>" ((#pan q1).(|* gain 0.8)) 
+                    $ fast "<3 6>" 
+                    $ s "sub37" # n "0 1" # pan u2 # gain (ramp1 4 0.8 0.9 tri)
+                    # lpf (ramp1 0.5 200 2000 tri)
+                    # cut "<1 0 0>"
+    noiseGen a =  s "supernoise*32" 
+                    # n 1 
+                    # gain (ramp1 a 0 1 tri) 
+                    -- # bpf 2000 
+                    
+
+reverse_list :: [Int] -> [Int]
+reverse_list = \list ->
+    case list of
+        [] -> []
+        x:xs -> reverse_list xs ++ [x]

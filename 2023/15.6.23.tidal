@@ -1,0 +1,52 @@
+d1 $ degradeBy "<0.2 0.1>"
+    $ echo "<5 7>" 0.123 0.9
+    $ slow "<2 0.15 0.2>" 
+    $ s "feedback" 
+    # speed (0.5 + perlin)
+    # pan k1
+    # gain (ramp1 3 0.7 1 tri)
+
+d2 $ stack[
+     degrade $ "sub37" # pan siliR # gain 1.4,
+     chop "<12 24 42>" $ slow 3 $ "popup" # pan siliL # gain (ramp1 3 1.3 1.6 tri),
+     echo 3 (-0.112) 0.8 $ s "knacks*8" # n (irand 3) # pan k1r # bpf (ramp1 6 2000 3000 tri) # gain 1.4
+] # speed 0.1
+
+d4 $ stack [
+    degradeBy 0.1 $ asdf "emanative" # pan circle # gain 1.4 # speed 1,
+    s "noise*12" # gain (ramp1 12 0.4 3 tri) # pan circle
+] # cps 1
+
+d1 $ chop "<5 2 0>" $ fast "<1 3 0.4>" $ euclid 3 15 $ s "feedback" # pan circle # gain (ramp1 5 0.8 1.2 tri) # hpf (ramp1 5 200 1000 square)
+
+
+d1 $ s "ilbd*<12 24>" # pan circleR # gain (ramp1 "<6 12>" 0 1.4 tri)
+
+d1 $ stack[ 
+    noiseGen 12 # pan circleR,
+    stfu $ degradeBy 0.4 $ euclid 5 13 $ s "perc:3" # pan zig,
+    degradeBy 1 $ chop "<12 24 3>" $ slow "<3 0.1>" $ s "feedback" # pan circle # gain (ramp1 4 0.5 1.4 tri)
+] 
+
+
+d2 $ s "sub37" # pan ll # speed zweitens # cps zweitens
+
+d3 $ chop "<12 23 4>" $ s "popup" # pan rr
+
+d4 $ noiseGen 12 # pan circleR
+
+d1 $ neverSurface
+
+cps (1)
+
+d1 $ chop "<12 23 4>"$ degradeBy 0.2 $ fast "<3 4>" $ s "feedback" # pan circle 
+
+d2 $ degradeBy 0.2 $ fast "<2 5>"$ s "sub37" # pan ll # speed zweitens
+
+d3 $ degradeBy 0.3 $ chop "<12 23 4>" $ s "popup" # pan rr
+
+d4 $ fast 2 $ noiseGen 12 # pan circle
+
+
+
+asdf

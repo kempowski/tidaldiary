@@ -1,0 +1,53 @@
+d1 $ s "bd*8" # pan 
+
+
+d1 $ asdf "dexter" 
+    # pan circle 
+    # gain 0.8 
+    # cps 0.5
+
+d2 $ s ""
+
+d1 $ slow 4 $ s "start" # pan circle # speed 0.3 # cut "1" 
+ 
+d2 $ degradeBy 0.3 $ chop 4 $ s "bd*16" # n (irand 4) # pan zig # gain (ramp1 2 0.3 1 sine)
+
+d2 $ silence
+
+d3 $ stack[
+    s "bd(3,8)" # pan circle,
+    s "~ sd(5,8)" # pan jump
+]
+
+d4 $ slow 4 $ s "sub37:3*4" # pan (speaker!!0) # speed 2
+
+d5 $ echo 2 0.9 0.8 $ s "knacks" 
+
+d1 $ slow 4 $ s "sub37:1 ~ ~ sub37:1" # n "<1.5 2 1.25 1>"  # pan q1 # cut "<1 0>"
+
+
+d1 $ echoWith 7 "<0.5 0.333>" ((# pan (choose quer1)) . (|* gain 0.97)) $ stack[
+    slow 2 $ s "sub37:1" # speed "1.5",
+    slow 2 $ s "~ ~ ~ sub37:1" # speed "2",
+    slow 4 $ slow 3 $ s "~ ~  sub37:1 ~ " # speed "1.3"
+] # pan circle # gain 0.8 # cps perlin
+
+
+d2 $ chop 16 $ euclid 3 8 $ s "~ knacks:1" # pan q3 
+
+d1 $ slow 4 $ echoWith 3 2.1 ((#pan q1).(|* gain 1)) $ s "bd" # pan q1
+
+
+d1 $ echoWith "<3 4>" 0.3333 ((# pan jump).(|* gain 0.8)) $ slow 2 $ s "start" # speed "<0.3 0.4>" # pan circle # gain (ramp1 2 0.8 1.1 tri)
+
+d2 $ degradeBy "<0.4 0.6 0.3>" $ anxiety "<1 22 42>" $ euclid 3 8 $ s "glitch" # pan zig # gain (ramp1 4 0.8 1.9 tri)
+
+d2 $ silence
+
+d3 $ stack[ 
+    degradeBy 0.3 $ every 4 (fast 8 ) $ slow 3 $ s "lucA" # speed depricated # gain (ramp1 3 0.5 1.2 tri),
+    echoWith "<3 4>" 0.222 ((#pan zig) . (|*gain 0.97)) $ slow 2 $ s "sub37:1" # pan jump #,
+    every 12 (hurry 4) $ asdf "dexter" # pan q3 # speed "<8 4 80 >" # gain (ramp1 2 0.3 1 sine)
+] # cps 1
+
+hush

@@ -1,0 +1,75 @@
+d1 $ fast "<1 2 0.5>" 
+    $ every 7 (stfu)
+    $ echoWith 4 "<-0.12 0.22>" ((#pan q1).(|* gain 0.8)) 
+    $ fast "<3 6>" 
+    $ s "sub37" # n "0 1" # pan u2 # gain (ramp1 4 0.8 0.9 tri)
+    # lpf (ramp1 0.5 200 2000 tri)
+    # cut "<1 0 0>"
+
+d3 $ asdf "emanative" 
+    # gain 0.8
+    # pan circle
+    # speed "<0.4 1 1.75>"
+    # lpf 6666
+
+d4 $ echo 4 0.333 0.7 $ s "feedback*4" 
+    # gain 0.5 
+    # pan circle
+    # speed (ramp1 0.2 "<2 10>" 0 tri)
+    # cut "<1 0 0>"
+    -- # speed 0.5
+
+
+d3 $ stack[  
+    asdf "emanative" 
+    # gain 0.8
+    # pan circle
+    # speed "<0.4 1 1.75>",
+    every 6 (stfu)
+    $ echo 4 0.333 0.7 
+    $ s "feedback*4" # gain 0.5 
+    # pan siliL
+    # speed 5
+] # cps "<1 0.5 4 0.111>"
+-- ] # cps (ramp1 1 0.42 100 perlin)
+
+
+-- RECORDING MIT FERDI AM 19.5.
+
+d4 $ stack [
+    s "test" # cut "3" # pan 0.5, 
+    degradeBy "<0 0.2 0.4>" $ slow 3 $ s "lucA" # speed depricated # pan circle # gain 0.6,
+    fast 4 $ s "~ <perc:2 perc:4>" # gain (ramp1 6 0.3 0.7 sine) # pan (ramp1 5 (speaker!!0) (speaker!!5) tri),
+    asdf "dexter" # gain (ramp1 3 0 0.6 tri) # speed (ramp1 3 4 2 tri) # pan circle
+] # cps "<0.2 1 2 8>"
+
+d1 $ every 4 ( echo 3 (-0.125) 0.9) $ slow 4 $ n "a2" # s "supersaw" # gain 0.7 # decay (range 0.7 0.9 tri ) # semitone 2 # crush "<16 4>"
+
+d1 $ every 1 ( echoWith 3 (-0.125) ((#crush (4+perlin)).(#cut "1"))) $ slow 4 $ n "a2" # s "supersaw" # gain 0.7 # decay (range 0.7 0.9 tri ) # semitone 2 
+
+
+resetCycles 
+
+
+d5 $ degradeBy (ramp 0.6 square) $ slow 1 $ asdf "emanative" # gain 0.8 # speed "<5 0.3 5 0.4 2>" # pan circle
+
+d3 $ degradeBy 0.1 $ echo 2 (-0.124) 0.8 $ euclid 3 8 $ s "null" # pan ll
+
+d4 $ s "feedback*4" # n perlin # gain (ramp1 8 0 0.6 tri)
+
+d6 $ euclid 5 10 $ s "perc:2*<4 3>" # pan "<0 1>" # gain 0.8 `
+
+-- 1.6. NICO
+d1 $ s "noise:2*4" 
+    # pan circle
+    # gain noExit
+    # hpf subsurface
+
+d2 $ chop 23 $ euclid 3 8 
+    $ s "perc:3" # pan siliL
+
+d3 $ echo "<3 4>" (-0.111) 0.8 
+    $ s "ilbd" 
+    # pan q1 
+    # speed (perlin + 0.5)
+    # cut 1

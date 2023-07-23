@@ -1,0 +1,11 @@
+d3 $ stack[ 
+    degradeBy 0.3 
+    $ every 4 (fast 8 ) 
+    $ slow 3 $ s "popup" 
+    # speed depricated 
+    # gain (ramp1 3 0.5 1.2 tri),
+    echoWith "<3 4>" 0.222 (#pan zig) 
+    $ slow 2 $ s "sub37:1" 
+    # pan jump,
+    every 12 (hurry 4) 
+] # cps 1

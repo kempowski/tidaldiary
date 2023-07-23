@@ -1,0 +1,14 @@
+-- impro mit niko im soundlab
+
+d1 $ s "test" # cut "<0 1>" # pan circle # gain 0.5
+
+d2 $ anxiety "<22 66>" $ slow 3 $ s "powerUp" # gain 0.7 # pan jump 
+
+d3 $ s "bd*16?" # pan (speaker!!5) # gain 0.8
+ 
+d4 $ every 4 (rev) $ chop 22 $ s "popup" # pan circle # 0.4
+
+d3 $ silence
+
+
+

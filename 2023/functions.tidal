@@ -1,0 +1,70 @@
+-- AUDIO SETUP VARIABLEN ZUHAUSE
+speaker = [ 0.1, 0.2, 0.3, 0.4, 0.5, 0.8, 0.9]
+speaker1 = [ 0.1, 0.2, 0.3, 0.4, 0.5]
+sub = speaker!!5
+horn = speaker!!6
+teufel = [ 0, 0.1, 0.4, 0.5]
+bla = [ 0.2, 0.3, 0.6, 0.7]
+
+try = range 0 4 sine
+
+-- AUDIO SETUP VARIABLEN dk soundlab
+-- 8 kanal speaker aray
+let speaker = [ 0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875]
+
+-- 8 kanal array umgeschreiben fuer 6 kanal speaker array im soundlabor!!!
+-- FUER PERFORMANCE ANGLEICHEN AN VENUE!!!!!!
+let speaker = [ 0.25, 0.375, 0.5, 0.625, 0.75, 0.875]    
+    speakerStep = 1.6
+-- BEWEGUNGEN GEOMETRISCH
+    diagonal1 = [speaker!!0, speaker!!3]
+    diagonal2 = [speaker!!5, speaker!!2]
+    diakur1   = [speaker!!0, speaker!!4]
+    diakur2   = [speaker!!5, speaker!!1]
+    diakur3   = [speaker!!1, speaker!!3]
+    diakur4   = [speaker!!4, speaker!!2]
+    quer1     = [speaker!!0, speaker!!5]
+    quer2     = [speaker!!1, speaker!!4]
+    quer3     = [speaker!!2, speaker!!3]
+    lang1     = [speaker!!0, speaker!!2]
+    lang2     = [speaker!!5, speaker!!3]
+-- BEWEGUNG
+    zigzag = [speaker!!5, speaker!!0, speaker!!4, speaker!!1, speaker!!3, speaker!!2]
+    u = [speaker!!0, speaker!!1, speaker!!4, speaker!!5, speaker!!1, speaker!!2, speaker!!3, speaker!!4]
+    diapatternX = diagonal2 ++ diagonal1
+-- PATTERN 
+    liste = "<0 1 2 3 4 5>"
+    depricated = "<0.9 1.4 1.2>"
+    drama = "<0.8 1 1.2>"
+    lowEnergy = "<5 0.3 5 0.4 2>"
+-- ARRAY BEWEGUNGEN
+    circle = (fit 1 speaker "0 1 2 3 4 5")
+    jump = (fit 3 speaker "0 1 2 3 4 5")
+    zig = (fit 1 zigzag "0 1 2 3 4 5")
+    u2 = (fit 1 u "0 1 2 3 4 5")
+    x = (fit 1 diapatternX "0 1 2 3")
+    dia1 = (fit 1 diagonal1 "0 1")
+    dia2 = (fit 1 diagonal2 "0 1 2 3 4 5")
+    q1 = (fit 1 quer1 "0 1")
+    q2 = (fit 1 quer2 "0 1")
+    q3 = (fit 1 quer3 "0 1")
+-- EIGENE FUNKTIONEN
+    anxiety = striate
+    lost panning = echoWith 10 0.124 ((# pan panning).(|* gain 0.9))
+    afk = (const $ s "")
+    stfu = afk
+    null = afk
+    together p = stutter 3 (2/16) $ p
+    asdf sampleName = density 8 
+                        $ s sampleName
+                        # n (irand 4)
+                        # unit "c"
+                        # speed 8
+    ramp a b = (slow a (range 0 1 b))
+    ramp1 a b c d = (slow a(range b c d ))
+
+reverse_list :: [Int] -> [Int]
+reverse_list = \list ->
+    case list of
+        [] -> []
+        x:xs -> reverse_list xs ++ [x]

@@ -1,0 +1,23 @@
+
+-- SERVER UFF 866%
+
+d1 
+        $ every 4 (fast "<2 4>")
+        $ echoWith "<3 5>" "<0.9 0.7>" (|* speed perlin) 
+        $ s "feedback*32" 
+        # n 1 
+        # gain (ramp1 12 0 1 tri) 
+        # bpf (ramp1 8 3000 2000 sine)
+        # pan "<[0 1]*<1 8 3>>"
+
+d2 $ s "bd"
+
+d3 $ chop "<12 24 <3 6>>" $ slow 2  $ s "popup" # pan "<0 1>*16"
+
+d2 $ slow 2 $ echo "<3 6>" 0.1234 0.85 $ s "noise:0" # gain 0.6 # speed "<0.3 0.4>"
+
+d3 $ euclid 5 13 $ s "perc:3" # pan (ramp1 2 0.2 0.8 tri)
+
+d1 $ chop 23 $ s "knacks"
+
+hush

@@ -1,0 +1,10 @@
+d1 $ chop "12 3 23"  
+    $ degradeBy 0.6 
+    $ fast "<3 5>" $ s " feedback" 
+    # pan zig 
+
+d1 $ stack[
+    fast "<2 6>" $s "sub37" 
+    # pan rr # speed zweitens,
+    chop "<12 4> " $s "popup" # pan ll # gain (ramp1 5 0.6 1.1 tri)
+] # cps "<0.4>"

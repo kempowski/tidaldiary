@@ -1,0 +1,79 @@
+d1 $ s "test" # gain 0.6 # cut "<1 0>" # pan circle
+
+d2 $ degradeBy 0.4 $ euclid 3 8 $ s "popup*5" # gain 0.5 # pan jump 
+d3 $ asdf "dexter" # gain 0.5 # pan jump # cps (range 0.4 1.2 tri)
+
+
+d3 $ asdf "emanative" # gain 0.7  # cps 0.1 # pan circle
+
+cps(1)
+
+d1 $ s "hih" # pan (fit 0 (diagonal1) "<0 1 2 3 4 5 6 7 8>") # gain 0.4 # cps 1 # speed 1 # cut 1
+
+d2 $ s "hih" # pan (fit 0  (quer1) liste) # gain 0.4
+
+
+d2 $ every 4 (ghost) $ s "hih*4" # pan jump # gain 0.3 # hpf ((range 2000 7000 tri))
+
+d3 $ anxiety 3 $ euclid 3 8 $ s "bd:2?" # gain 0.4 # pan jump
+
+d4 $ slow 2 $ s "start" # gain 0.3 # speed 0.1 # cut "1" # pan jump
+
+d2 $ stfu $ s "test" # cut "<0 1> " # gain 0.5 # pan (speaker!!0)
+
+d3 $ null $ every 2 (rev) $ asdf "dexter" # gain 0.3 # pan (speaker!!5) # pan circle
+
+
+
+
+
+let a = fit 1 diagonal1 "0 1"
+
+a
+
+
+d1 $ stfu $ s "start" # speed 0.1 # gain 0.3 # pan jump # cut "1"
+
+d2 $ s "test" # cut "1" # gain 0.6 # pan jump
+
+d2 $ silence
+
+d3 $ chop "<24 12 9>" $ s "perc" # cut 1 # gain 0.2 # pan jump
+
+d4 $ s "hih*8?" # gain 0.2 # speed "<0.5 1.2 1>"
+
+d4 $ silence
+
+d5 $ every 4 (fast 2) $ chop 4 $ s "powerUp" # gain 0.2 # pan circle
+
+d6 $ stfu $ asdf "dexter" # gain 0.3
+
+d1 $ chop 3 $ s "hih" # gain 0.3 # pan (fit 2 diagonal2 liste)
+
+
+d1 $ stack [
+    stfu $ slow 2 $ s "start" # gain 0.2 # speed "<0.1 0.3>" # cut "<1 0>" # pan jump,
+    stfu $ s "test" # cut "1" # gain 0.6 # pan circle,
+    stfu $ slow 2 $ s "emanative" # gain 0.3 # pan (fit 1 lang2 liste) # speed 0.8,
+    euclid 3 8 $ s "~ emanative:5" # gain 0.3 # speed 0.8 # pan (fit 0 quer1 liste)
+] # cps "<1 1 0.4>"
+
+
+
+d1 $ ghost $ fast 3 $ s "pff" # pan (fit 0 (diagonal1++quer1++lang1) liste) # gain 0.3
+
+d1 $ slow 2 $ s "start" # gain 0.2 # speed 1 # cut "1statsstr" 
+
+d2 $ s "test" # gain 0.4
+
+d1 $ stack [
+    stfu $  every 4 (struct "") $ slow 2 $ s "start" # gain 0.2 # cut "2" # pan circle # speed 0.3,
+    s "test" # gain 0.3 # cut "1",
+    stfu $ every 4 (fast 4) $ chop "6 8" $ s "powerUp" # gain 0.2 # pan jump,
+    degradeBy 0.8 $ euclid 3 8 $ s "pff" # pan (fit 0 (diagonal1) liste) # gain 0.5 
+]
+
+d2 $ degradeBy 0.2 $ anxiety 32 $ asdf  "glitch" # gain "<0.3 0.1 0.2>" # pan jump
+
+d3 $ every 4 (hurry 3) $ chop 16 $ n "1 4 7" # s "supersaw" # gain 0.2 # pan (choose(speaker)) # crush "<0.4 0.6 0.3>"
+

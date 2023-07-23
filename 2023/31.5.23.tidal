@@ -1,0 +1,68 @@
+d1 $ degradeBy 0.1 
+    $ every 3 (fast 4) $ slow 4 $ echo "<4 2 5>" 0.111 0.91
+    $ s "[feedback ~ ~ ~ ~ ~]*7"
+    # n "<1 7 3 5>" 
+    # cut 1 # pan circle 
+    # speed "<0.4 0.5 0.111>"
+    # gain (ramp1 3 0.7 1.3 sine)
+    # lpf 20000
+
+interpolateIn 1 16
+    $ every 3 (fast 4) $ slow 4 $ echo "<4 2 5>" 0.111 0.91
+    $ s "[feedback ~ ~ ~ ~ ~]*7"
+    # n "<1 7 3 5>" 
+    # cut 1 # pan circle 
+    # speed "<0.4 0.5 0.111>"
+    # gain (ramp1 3 0.7 1.3 sine)
+    # lpf 200
+
+d1 $ slow 3
+    $ chop "<4 3 5>"
+    $ euclid 3 8 
+    $ s "sub37:0" # pan zig 
+    # cut 1 
+    # speed drama 
+    # gain (ramp1 1 0.7 0.9 tri)
+    # crush (ramp1 0.2 4 9 tri)
+
+d2 $ every 3 (fast 4) $ chop "<4 4 8>" 
+    $ s "perc:3" 
+    # pan q1 
+    # gain (ramp1 2 0.7 1.4 perlin)
+    # cps 0
+
+
+d3 $ degradeBy 0.3 $ stack[
+    degradeBy 0.2
+    $ asdf "emanative" 
+    # pan q3 
+    # speed "<5 0.3 5 0.4 2>"
+    # gain (ramp1 0.25 0.6 1.2 perlin),
+    every 2 (stfu) 
+    $ slow 4 
+    $ s "pff*4" # gain (ramp1 3 0.1 1.1 tri)
+    # pan q1
+    # speed drama
+] # cps 0
+
+hush
+
+
+cps(100)
+
+d1 $ chop "<4 3>"
+    $ echo "<5 3 4>" "<0.22 0.111>" 0.9 $  s "feedback*5" 
+    # pan jump 
+    # gain 1
+    # speed "<1 1.5 1.7 1.2434>"
+    # hpf (ramp1 1 0 2000 tri)
+    # cps 0
+
+
+
+
+
+d1 $ chop 12 $ s "feedback*4" # pan circle 
+    # gain (ramp1 3 0.6 0.8 sine)
+    # cut "<0 1 1>"
+    # speed (perlin + 0.5)

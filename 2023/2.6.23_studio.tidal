@@ -1,0 +1,61 @@
+d1 $ every 16 (rev . fast 4)    
+    $ s "perc:3" 
+    -- # gain (slow 16(range 0 1 sine)) 
+    # pan hl1
+    # cut 1
+    # bpf 1000
+    # cps 6
+
+
+d2 $ slow 6 
+    $ s "sub37:2"
+    # speed lowEnergy 
+    # pan q1 
+    # cut 2
+    # lpf 100
+
+
+d1 
+    $ every 16 (# pan hl2)
+    $ every 16 (rev . fast 4)    
+    $ s "perc:3" 
+    -- # gain (slow 16(range 0 1 sine)) 
+    # pan hl1
+    # cut 1
+    # bpf 1000
+    # cps 6
+
+d1 $ every 8 (rev . (# pan rr)) 
+    $ slow 4 
+    $ echo 12 0.111 0.9 
+    $ s "superhex" # n "<0 1>" 
+    # gain 0.4 
+    # legato 1 
+    # pan ll
+
+d2 $ fast "<3 6>"$ s "perc:3" # pan rr # gain noExit
+
+d3 $ fast 1 $ echo 5 0.111 0.9 $ s "supernoise" # n 12 
+    # pan circle 
+    # cut 1
+    # gain (ramp1 3 0.4 0.8 tri)
+    # bpf 6000
+
+d4 $ brr "emanative" # pan q1 # speed lowEnergy # gain 0.5
+
+d1 $ brr "emanative"
+
+d1 $ arpg $ stack [
+    swingBy 0.8 1 $ s "perc:3*4" # pan q1 # bpf 1000,
+    slow 1 $ chop 12 $ s "feedback" # pan q3 # gain 0.4 
+]
+
+
+d1 $ rolled $ n "c'maj'4" # s "superpiano" # gain 0.3
+
+d1 $ stut "<3 5>" "<0.2 0.33>" 0.111 $ s "angho" # cut 1 # pan ll 
+
+
+d1 $ fast "<1 4 12>" $ s "~ perc:3" # pan k2
+
+d2 $ fast "<1 4 12>" $ s "perc:3" # pan k1r

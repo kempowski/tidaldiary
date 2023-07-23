@@ -1,0 +1,29 @@
+d1 $ chop "<4 8 12 24>" 
+    $ degradeBy 0.3
+    $ echo "<3 5>" 0.1234 0.9 
+    $ s "feedback" 
+    # pan siliD 
+    # gain (ramp1 8 0.3 1 tri)
+
+d2 $ slow "<3 4>" $ chop "<12 43 3>" 
+    $ s "popup" 
+    # pan k1
+
+d3 $ s "supernoise*14" # n 1 
+    # gain (ramp1 4 0 0.8 saw )
+    # bpf 3000
+    # pan k3
+
+d4 $ every "<3 5>" (stfu)
+    $ degradeBy 0.1 
+    $ asdf "dexter" 
+    # pan jump 
+    # speed "<0.4 1 0.4 12>"
+    # cps 1
+
+d5 $ degradeBy 0.7 
+    $ every 3 (fast"<2 5>") 
+    $ euclid 5 13 
+    $ s "perc:3" 
+    # pan circle
+

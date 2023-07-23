@@ -1,0 +1,25 @@
+-- RD8 & K2 MIDI DEVICES
+let rd8 = s "rd8"
+    k2 = s "k2"
+-- RD8 MIDINOTEN MAPPING
+let bd = midinote "36" # rd8
+    sd = midinote "~ 37"
+    ch = midinote "38" # rd8
+    oh = midinote "41" # rd8
+    cy = midinote "51" # rd8
+    rs = midinote "37" # rd8
+    shk = midinote "40" # rd8
+    lt = midinote "39" # rd8
+    mt = midinote "47" # rd8
+    ht = midinote "50" # rd8
+    cb = midinote "56" # rd8
+
+
+
+-- RD8 INSTRUMENTE ALS NOTEN, IWIE UNNOETIG 
+-- KONNTE NICHT HALBTOENE ANSTEUERN, Cis, fis, etc.  
+    -- bd = "c3"
+    -- sd = "~ cs3"
+    -- ch = "d3"
+    -- oh = "~ f3"
+    -- hc = "e3"

@@ -14,13 +14,15 @@ do
     # lpf 3000
     # room 0.2
 
+
   d1
     $ slow 2
     $ stut 5 0.6 (-0.2)
-    -- $ every 4 (linger "<0.5 1 0.1>")
+    $ every 1 (linger "<0.25 1 0.125>")
     $ s "sine(3,2)"
     # up prog
     # gain 0.8
+
 
 p 132
   -- $ striate' 4 0.1

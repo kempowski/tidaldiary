@@ -1,0 +1,10 @@
+d1 $ s "angho" # pan circle # cut 1
+
+d2 $ degradeBy 0.1 $  $ euclid 5 13 $ s "perc:2" # pan zig # cps "<0.5 2 42>"
+
+d1 $ chop "<12 42>" $ s "popup" # pan k2
+
+d1 $ fast "<3 5>" $ chop "<22 12>" $ s "perc:3" # pan siliL
+
+d2 $ asdf "emanative" # pan circle # cps "<0.2 1 43>"
+

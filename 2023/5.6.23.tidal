@@ -1,0 +1,55 @@
+d1 $ slow 2 
+    $ echo 4 0.333 0.8
+    $ s "feedback" 
+    # pan q1 
+    # cut "<0 1 0>"
+
+
+d1 $ lost dk1 $ fast 16 $ s "supernoise*16" 
+    # n 1 
+    # bpf (ramp1 5 3000 6000 tri) 
+    # gain noExit
+    # pan erster
+
+d2 $ every 2 ((fast 4) . (#pan circle)) 
+    $ slow 2 $ stack[
+    euclid 5 13 $ s "perc:2" # pan q1,
+    euclidInv 5 13 $ s "perc:3" # pan q3 # legato 1 # gain 0.8
+]
+
+
+
+d3 $ degradeBy 0.2
+    $ echoWith 12 0.11 ((#pan q1).(# gain 0.9)) 
+    $ s "noise:2" 
+    # pan ll # cut "<1 0>"
+    # pan noExit
+    # hpf subsurface
+
+d3 $ fast 2 $ s "emanative:3" # pan jump
+
+perlin
+
+
+d3 $ degradeBy 0.1 $ echo 2 (-0.124) 0.8 $ euclid 3 8 $ s "null" # pan lrlr # speed depricated
+
+d2 $ fast "<2 4>" $ s "~ perc:2" # pan circle
+
+d1 $ s "~ perc:3" # pan q1
+
+d4  $ asdf "dexter" # gain noExit # speed "<1 2 42 0.3>" # cut "<1 0>" # pan dia1 # hpf subsurface
+
+d5 $ slow 4 $ s "supernoise*16" # n 1 # gain (ramp1 3 0 0.8 tri) # cut 1 # pan circle
+
+__________________________________
+
+
+
+
+
+d4 $ slow "<1 2>" $ every 4 (chop 22) $ s "feedback:1*52" # pan u2 # gain (ramp1 3 0.3 1 tri) # cut "<0 1 0>" # hpf subsurface
+
+
+d1 $ every 8 ((#pan q1).(# crush 4)) $ chop 42 $ s "perc:2*8" # cut 1 # pan q3
+    
+d1 $ fast "<8 12 16 24>" $ s "perc:2" # pan zig # bpf 5000 # cps "<1 0.42>"

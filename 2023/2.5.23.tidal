@@ -1,0 +1,74 @@
+let anxiety = striate'
+    afk = (const $ s "")
+    stfu = afk
+
+let together p = stutter 3 (2/16) $ p
+
+let asdf sampleName = density 8 
+                        $ s sampleName
+                        # n (irand 4)
+                        # unit "c"
+                        # speed 8
+
+d1 $ slow 4 $ anxiety "<1 8 4>" (0.25/4) $ s "numbers:0 numbers:1"
+
+d1 $ stack[
+    s "spbss" # cut 1,
+    every 2 afk $ s "ilBd"
+]
+
+d1 $ chop 16 $ s "test" # gain 2 # cut 1
+
+d1 $ slow 2 $ chop 4 $ s "drums*4" # gain 1 # cut 1 # speed "0.4 1 0.5 0.7"
+
+d1 $ s "bd sn bd sn"
+
+once $ s "str"
+
+d1 $ anxiety 14 (1/16) $ s "noEvent"
+
+let asdf sampleName = density 8 
+                        $ s sampleName
+                        # n (irand 4)
+                        # unit "c"
+                        # speed 8
+
+d1 $ chop 2 $ asdf "spbss" # cps ((0.5) * (range 1 7 $ slow 1.5 saw))
+
+
+d3 $ s "bd(3,8)"
+
+xfadeIn 3 8 $ s "arpy*4"
+
+d1 $ sound "jvbass(3,8)"
+
+clutch 1 $ sound "bd sn" 
+
+
+d1 $ sound "arpy*16" # cutoff 100
+
+interpolate 1 $ sound "arpy*16" # cutoff 16000
+
+d1 $ s "[bd ~ [bd [ht lt]] ho]"
+
+d2 $ s "hh27:2*4 cp*3"
+
+wait 2 4 $ s "feel:4*4 cp*3"
+
+
+d1 $ chop 8 $ rev $ anxiety 4 0.125 $ s "numbers*8" # nTake "sus" [0 .. 1]
+
+d1 $ slow 2 $ n "-8" 
+    # s "supersquare" 
+    # decay "[0.4 0.7]/2"
+    # voice "<0.1 0.2 0.3>"
+    # accelerate 0.4
+    # resonance (0.1)
+    # lfo 0.4
+    # rate 666
+    # semitone "[3 5 7]/3"
+    # cps 1
+
+d2 $ n "g'min " # s "supersaw" 
+
+chordList

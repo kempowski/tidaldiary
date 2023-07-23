@@ -1,0 +1,94 @@
+d1 $ stack[
+    s "dexter:0(3,8)",
+    s "hih*<4 <16 8>>",
+    s "~ sd"
+] 
+
+let rd8 = (# s "rd8")
+
+-- RD8 MIDI DEVICES
+let rd8 = s "rd8"
+    k2 = s "k2"
+ 
+-- RD8 INSTRUMENTE ALS NOTEN, IWIE UNNOETIG 
+-- KONNTE NICHT HALBTOENE ANSTEUERN, Cis, fis, etc.  
+    bd = "c3"
+    sd = "~ cs3"
+    ch = "d3"
+    oh = "~ f3"
+    hc = "e3"
+
+
+
+d1 $ stack [
+    every 4 (rev) $ chop "<2>" $ euclidFull 3 8 (n bd)(n ch) # s "rd8" # midichan 0,
+    every 4 (fast "<2 3>") $ n "~ cs3" # s "rd8" # midichan 0
+]
+
+d2 $ slow 5 $ n (scale "prometheus" $ "0 5 ~ 3 1 ~") # k2 # midichan 0 
+
+d2 $ silence
+
+d1 $ stack[
+    echo "<4 3 2>" "<0.125 0.225>" 0.6 $ n bd # rd8,
+    degradeBy "<0.3 0.2>" $ slow 3 $ chop "<3 4>" $ euclid 7 12 $ n ch # rd8,
+    degrade $ fast 2 $   chop "<2 3>" $ n oh # rd8,
+    n sd # rd8
+] # cps 1 
+
+# cps "<1 0.4 4 0.2>" |* perlin
+
+d1 $ stack[
+    degrade $ euclid 3 8 $ n bd # rd8,
+    fast "<4 8 16 2>" $ n ch # rd8,
+    every 4 (chop "<2 12>") $ n sd # rd8
+] # cps "1" 
+
+
+
+lookup "prometheus" scaleTable
+
+d1 $ stack [
+    slow 2 $ n bd # rd8,
+    echo 2 0.72 0.8 $ slow 6 $ n sd # rd8,
+    euclid 3 12 $ n ch # rd8,
+    degradeBy 0.8 $ n oh # rd8,
+    every 4 (chop "<3 7>") $ euclid 5 8 $ n hc # rd8,
+    slow 4 $ n "<c3 ~>" # k2
+]
+
+d2 $ bd
+
+-- RD8 MIDINOTEN MAPPING
+let bd = midinote "36" # rd8
+    sd = midinote "~ 37"
+    ch = midinote "38" # rd8
+    oh = midinote "41" # rd8
+    cy = midinote "51" # rd8
+    rs = midinote "37" # rd8
+    shk = midinote "40" # rd8
+    lt = midinote "39" # rd8
+    mt = midinote "47" # rd8
+    ht = midinote "50" # rd8
+    cb = midinote "56" # rd8
+
+
+d1 $ stack [
+    slow 2 $ bd,
+    echo 2 0.7 0.5 $ slow 6 $ rs,
+    euclid 3 12 $ ch,
+    degradeBy 0.8 $ oh,
+    every 4 (chop "<3 7>") $ euclid 5 8 $ shk,
+    slow 2 $ n "<c3 ~>" # k2
+] 
+
+let a = 8
+
+d1 $ stack[
+    euclid 5 a $ bd,
+    euclid 3 a $ shk,
+    slow 2 $ degradeBy 0.3 $ euclid 6 a rs,
+    n "a3 ~" # k2
+]
+
+d1 $ n "a1 ~" # k2

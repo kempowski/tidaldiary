@@ -1,0 +1,7 @@
+d2 $ degradeBy "<0.2 0.5 1 0.4 0>" $ asdf "emanative" # speed "<1 0.2 5 0.5 0.1>" # pan k1
+
+d3 $ s "pff" # pan k2r # speed "<0.8 0.5 1.2 1>" 
+
+d4 $ degradeBy 0.2 $ echoWith "<13 5>" "<0.11 0.22>" ((#pan siliD).(|* gain 0.95)) $ s "noise" # pan circle # gain (ramp1 7 0.6 1.6 tri) # speed "<0.2 1 1.2>" 
+
+d3 $ slow 4 $ s"test" # cut "<1 0 0>" # pan circle

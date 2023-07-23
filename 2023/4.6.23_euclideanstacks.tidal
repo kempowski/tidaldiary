@@ -1,0 +1,22 @@
+d1 $ slow 4 $ stack [
+    fast 2 $ euclid 5 7 $ s "perc:2", 
+    fast 2 $ euclid 5 14 $ s "null" # speed 1.4 # gain 1,
+    euclid 5 7 $ s "sd" # gain 0.8,
+    slow 1 $ euclid 5 12 $ s "bd" # gain 1
+]
+
+d2 $ slow "<2 4>" $ euclidFull 5 13 (s "perc:2" # pan 1)(s "perc:3" # pan 0)
+
+d2 $ stack[
+    every "<3 5>" (#pan 1) $ slow 2 $ euclidInv 5 13 $ s "perc:2" # pan 0,
+    every "<3 5>" (#pan 0) $ slow 2 $ euclid 5 13 $ s "perc:3" # pan 1
+]
+
+
+d2 $ stack[
+    slow 2 $ euclidInv 5 13 $ s "perc:2" # pan "<0 1>",
+    slow 2 $ euclid 5 13 $ s "perc:3" # 
+    pan "<1 0>"
+]
+
+d1 $ s "bd"

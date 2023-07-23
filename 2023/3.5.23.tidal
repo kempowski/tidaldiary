@@ -1,0 +1,44 @@
+d1 $ stack[
+    slow 2 $ ghost $ n "1 3 7 5"
+        # s "psin" # room 0.5 # gain 0.6,
+    every 4 (fast 2) . euclid 3 8 $ s "ilBd",
+    s "tascan" # cut "2",
+    off 0.125 (# pan square) $ echo 1 0.32 0.5 $ s "hih:3*16?" # hpf 6000 # hpq 0.8 # gain 0.5  
+]
+
+d1 $ stack[
+    slow 4 $ ghost $ n "1 3 7 5" # s "psin" # pan sub # gain 0.8,
+    stfu $ off 0.125 (#pan 0.3) $ s "hih:3*16?" #hpf 6000
+]
+
+d1 $ anxiety 23 $ s "test" # pan (speaker!!1) # gain 1.1 # cut 1
+
+d2  $ every 2 ( anxiety "22 66")$  s "supersquare" # n "19 18 17" # pan circle # decay 0.9  # gain "[0.3 0.5 0.3 0.4]/4"
+
+d3 $ silence
+
+d3 $ chop 32 $ s "powerUp" # pan (choose(speaker)) # gain 0.5
+
+d4 $ slow 3 $ anxiety 22 $ euclid "<3 5>" "<8 11>" $ s "glitch" # pan (choose(speaker)) # gain "<0.4 0.5 0.6>"
+
+d5 $ together $ every 3 (jux $ rev ) $ slow 5 $ s "popup" # pan (choose(speaker)) 
+
+d1 $ s "popup"
+
+d1 $ slow 3 $ s "noEvent" # gain 0.6 # pan (choose(speaker))
+
+d1 
+    $ slow 4
+    $ stutWith 2 (0.125) (# pan circle ) 
+    $ s "noEvent"
+    # pan jump 
+    # cut "<0 1>"
+    # gain 0.8
+
+d5 $ s "bd*16?" # pan jump # gain 0.6
+
+d2 $ silence
+
+
+hush
+
