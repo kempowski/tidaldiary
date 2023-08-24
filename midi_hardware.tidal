@@ -1,6 +1,7 @@
 -- RD8 & K2 MIDI DEVICES
 let rd8 = s "rd8"
     k2 = s "k2"
+    
 -- RD8 MIDINOTEN MAPPING
 let bd = midinote "36" # rd8
     sd = midinote "~ 37"

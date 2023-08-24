@@ -2,7 +2,7 @@ d1 $ stack[
     s "dexter:0(3,8)",
     s "hih*<4 <16 8>>",
     s "~ sd"
-] 
+    ] 
 
 let rd8 = (# s "rd8")
 
@@ -91,4 +91,10 @@ d1 $ stack[
     n "a3 ~" # k2
 ]
 
-d1 $ n "a1 ~" # k2
+d1 $ stack[
+    n "a2 ~ c3 ~" # k2,
+    bd,
+    fast 8 # ch
+
+let a =8
+   

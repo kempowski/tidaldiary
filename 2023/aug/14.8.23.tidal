@@ -1,0 +1,3 @@
+d1 $ s "hih"
+
+streamReplace tidal 1 $ s "hih" # cut 1 # intensity 3
