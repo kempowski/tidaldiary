@@ -1,0 +1,15 @@
+d1 $ chop "<16 42>" $ schwebe "<1 3>" # gain (ramp1 2 sine 0.8 1.3)
+
+d2 $ echo 3 0.125 0.9 $ s "wald" # cut "<1 1 0>" 
+
+d3 $ s "bd"
+
+d4 $ drumchop "stp_freehall" # n (irand 4)
+
+d5 $ neverSurface
+
+
+d1 $ when ((elem '4'). show) (striate 8) $ s "hh hc" # cps 4
+
+
+cps (2)

@@ -1,0 +1,44 @@
+d5
+    -- $ jux rev
+    $ slow 2
+    $ chop "<5 3 1>"
+    $ s "[feelfx:2(4,3)]"
+    # n "0 1 4 2"
+    # speed "[1 
+    0.4 3]/2"
+    -- # cps "1 0.7 0.6"
+    # pan "0 0.5 1 0.5"
+
+
+d2 $ euclid 3 8 
+
+d1 $ slow 2 $ s "ST-05:42" # speed 0.3
+
+
+d1 $ off 0.25 ((# speed 1.5) . (# gain 0.7)) $ echo 8 0.2 0.9 $ slow 2 $ s "ST-05:8" # speed "<0.3 0.5>" # orbit 1
+
+
+
+d1 $ echo 8 "<0.2 0.1 0.2 0.3>" 0.9 $ slow 1 $ s "ST-05:8" # speed "<0.3 0.5 0.3 0.6>"
+
+d2 
+    $ off 0.25 ((#speed 0.4).(#crush 3).(#gain 0.9).(#pan "<0 1>")) 
+    $ euclid 3 8 
+    $ s "ST-05k:69" 
+    # speed "<0.2 0.235>"
+    # pan "<1 0>"
+
+d3 $ every 4 (rev) $ slow 1 $ chop "<2 12 6 3>" $ s "ST-05:131" #speed 0.2 # cut 1 #cps 0.5
+
+d3 $ off (range sine 0.14 0.28) (#speed 1.1) $ echo 13 0.124 0.9 $ slow 2 $ s "ST-05:57" # speed 0.2
+
+d3 $ stack[
+    s "bd(3,8)",
+    s "808hc*4?",
+    every 2 (fast 4) $ s "hh*8?" # pan "<0 1>"
+]     
+
+d3 $ stack [
+    s "bd(3,8)",
+    euclid 5 13 $ s "hh"
+]

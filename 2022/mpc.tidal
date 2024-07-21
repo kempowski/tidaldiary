@@ -1,11 +1,13 @@
 
 setcps(90/60/4)
 
+
 d1 $ striate 1 $ off "4s" ( (|- gain 0.9)) 
-    $ slow 4 $ n "c'min d'min e'min d'min" 
+    $ slow 4 $ n "d'min c'min d'min e'min" 
     # s "superfm" 
     # legato 1
-    # pan "1 0 1 0"
+    # pan "0.25 0.75"
+    # gain 0.8
 
 
 
